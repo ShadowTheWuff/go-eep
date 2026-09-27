@@ -2,13 +2,13 @@ name = "go-eep"
 main = "src/index.js"
 compatibility_date = "2026-09-01"
 
-# 04:00 and 05:00 UTC = 11pm Central in summer (CDT) and winter (CST).
+# 07:00 and 08:00 UTC = 2am Central in summer (CDT) and winter (CST).
 # The code only sends on whichever one matches BEDTIME_HOUR locally.
 [triggers]
-crons = ["0 4,5 * * *"]
+crons = ["0 7,8 * * *"]
 
 [vars]
 TIMEZONE = "America/Chicago"
-BEDTIME_HOUR = "23"
+BEDTIME_HOUR = "2"
 MESSAGE = "go eep 🛏️"
 # DISCORD_USER_ID = "123456789012345678"   # uncomment to @ yourself

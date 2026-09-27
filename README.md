@@ -17,7 +17,7 @@ npx wrangler secret put WEBHOOK_URL     # paste your webhook URL
 npm run deploy
 ```
 
-That's it. It'll ping you at 11pm Central every night.
+That's it. It'll ping you at 2am Central every night.
 
 ## Getting a webhook URL
 
@@ -32,7 +32,7 @@ Edit the `[vars]` block in `wrangler.toml`:
 | Var | Default | What it does |
 |---|---|---|
 | `TIMEZONE` | `America/Chicago` | Your IANA time zone |
-| `BEDTIME_HOUR` | `23` | Local hour (0–23) to send the ping |
+| `BEDTIME_HOUR` | `2` | Local hour (0–23) to send the ping |
 | `MESSAGE` | `go eep 🛏️` | The message text |
 | `DISCORD_USER_ID` | *(unset)* | Your Discord user ID, so the ping @'s you and your phone buzzes |
 
@@ -52,6 +52,7 @@ If you change `BEDTIME_HOUR`, update the cron too. For Central time, local hour 
 | 10pm | `0 3,4 * * *` |
 | 11pm | `0 4,5 * * *` |
 | midnight | `0 5,6 * * *` |
+| 2am | `0 7,8 * * *` |
 
 ## Testing locally
 
@@ -60,7 +61,7 @@ cp .dev.vars.example .dev.vars    # fill in your webhook URL
 npm run dev
 ```
 
-Then trigger the cron by opening `http://localhost:8787/__scheduled?cron=0+4,5+*+*+*`. It only sends if it's actually bedtime, so for a guaranteed ping use `/ping?key=YOUR_TEST_KEY` instead.
+Then trigger the cron by opening `http://localhost:8787/__scheduled?cron=0+7,8+*+*+*`. It only sends if it's actually bedtime, so for a guaranteed ping use `/ping?key=YOUR_TEST_KEY` instead.
 
 ## Auto-deploy from GitHub (optional)
 

@@ -20,7 +20,7 @@ export default {
 
 async function maybePing(env) {
   const tz = env.TIMEZONE || "America/Chicago";
-  const bedtime = Number(env.BEDTIME_HOUR ?? 23);
+  const bedtime = Number(env.BEDTIME_HOUR ?? 2);
 
   const hour = Number(
     new Intl.DateTimeFormat("en-US", { timeZone: tz, hour: "numeric", hourCycle: "h23" }).format(new Date())
